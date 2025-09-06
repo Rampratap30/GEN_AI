@@ -35,8 +35,8 @@ Musk's political activities, views, and statements have made him a polarizing fi
     summary_prompt_template = PromptTemplate(
         input_variables=["information"], template=summary_template
     )
-
-    llm = ChatOpenAI(temperature=0, model=os.environ.get("MODEL_ID"))
+    llm = ChatOllama(temperature=0, model=os.environ.get("OLLAMA_MODEL_ID"))
+    #llm = ChatOpenAI(temperature=0, model=os.environ.get("MODEL_ID"))
     chain = summary_prompt_template | llm
 
     response = chain.invoke(input={"information": information})
